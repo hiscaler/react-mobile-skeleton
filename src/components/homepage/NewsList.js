@@ -1,7 +1,8 @@
 import React from 'react'
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {Toast} from "antd-mobile";
+import Url from "../../helpers/Url";
 
 /**
  * News list
@@ -24,14 +25,17 @@ class NewsList extends React.Component {
     }
   }
   
-  componentDidMount() {
-    const url = 'https://api.apdnews.com/news/list?attribute=v&lang=zh-cn&limit=10&accessToken=FF78F2D3-C2A5-2875-0EE2-EB6803A67639'
+  componentWillMount() {
+    const url = Url.toRoute('news/list', {
+      limit: 10
+    })
     axios.get(url).then((resp) => {
       console.info(resp)
       this.setState({
         isLoading: false,
         items: resp.data.data.items
       })
+      Toast.hide()
     })
   }
   
@@ -39,7 +43,7 @@ class NewsList extends React.Component {
     const {title, moreUrl, className} = this.props
     const {isLoading, items} = this.state
     if (isLoading) {
-      Toast.loading("载入中...", 3, null, false);
+      Toast.loading("载入中...", 0, null, false);
       return null;
     } else {
       return (
@@ -50,7 +54,7 @@ class NewsList extends React.Component {
           <div className="bd">
             <ul>
               {items.map(item => <li key={item.id}>
-                <a to={'/news-view' + item.id} title={item.title}>{item.title}</a>
+                <Link to={'/news/' + item.id} title={item.title}>{item.title}</Link>
               </li>)}
             </ul>
           </div>
