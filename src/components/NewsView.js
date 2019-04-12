@@ -3,6 +3,9 @@ import axios from "axios";
 import moment from "moment";
 import Url from "../helpers/Url";
 import {Toast} from "antd-mobile";
+import Tabbar from "./Tabbar";
+import Header from "./Header";
+import "./NewsView.css";
 
 class NewsView extends React.Component {
   
@@ -34,14 +37,22 @@ class NewsView extends React.Component {
       return null;
     } else {
       return (
-        <div className="news-detail">
-          <h1 className="title">{article.title}</h1>
-          <p className="meta">
-            发布时间: {moment.unix(article.publishedAt).format("YYYY-MM-DD")}
-          </p>
-          <div className="body">
-            {article.description}
+        <div id="page">
+          <div id="page-hd">
+            <Header/>
           </div>
+          <div id="page-bd">
+            <div className="news-detail">
+              <h1 className="title">{article.title}</h1>
+              <p className="meta">
+                发布时间: {moment.unix(article.publishedAt).format("YYYY-MM-DD")}
+              </p>
+              <div className="body">
+                {article.description}
+              </div>
+            </div>
+          </div>
+          <Tabbar/>
         </div>
       );
     }

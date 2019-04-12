@@ -1,0 +1,23 @@
+.news-detail {
+
+}
+
+.news-detail .title {
+    margin-bottom: 10px;
+}
+
+.news-detail .meta {
+    color: #cccccc;
+    line-height: 30px;
+    border-bottom: #cccccc solid 1px;
+}
+
+.news-detail .body {
+    padding-top: 10px;
+    line-height: 24px;
+}
+
+.news-detail .body img {
+    max-width: 100%;
+    text-align: center;
+}
