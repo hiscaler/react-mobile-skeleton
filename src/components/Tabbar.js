@@ -1,5 +1,6 @@
 import React from "react";
 import "./Tabbar.css"
+import {withRouter} from 'react-router-dom';
 
 class Tabbar extends React.Component {
   
@@ -39,11 +40,25 @@ class Tabbar extends React.Component {
     }
   }
   
+  componentWillMount() {
+    const pathname = this.props.location.pathname
+    let buttons = this.state.buttons
+    for (let i in buttons) {
+      let url = buttons[i].url, len = url.length
+      if (pathname === url || (len > 1 && pathname.substr(0, len) === url)) {
+        buttons[i].active = true
+      }
+    }
+    this.setState({buttons: buttons})
+  }
+  
   render() {
     return (
       <div id="tabbar" className="am-tabs-tab-bar-wrap">
         <div className="am-tab-bar-bar">
-          {this.state.buttons.map(button => <a data-seed="logId" className="am-tab-bar-tab" href={button.url} key={button.url}>
+          {this.state.buttons.map(button => <a className={"am-tab-bar-tab" + (button.active ? " tabbar-active" : "")}
+                                               href={button.url}
+                                               key={button.url}>
             <div className="am-tab-bar-tab-icon">
               <span className={button.badge && "am-badge am-tab-bar-tab-badge tab-badge"}>
                 <div
@@ -65,4 +80,5 @@ class Tabbar extends React.Component {
   
 }
 
-export default Tabbar;
+// export default Tabbar;
+export default withRouter(Tabbar)

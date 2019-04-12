@@ -8,3 +8,7 @@
 .am-tab-bar-tab-title {
     color: rgb(148, 148, 148);
 }
+
+.tabbar-active .am-tab-bar-tab-title {
+    color: #ff5b05;
+}
