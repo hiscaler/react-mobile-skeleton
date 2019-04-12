@@ -3,8 +3,8 @@ import axios from "axios";
 import moment from "moment";
 import Url from "../helpers/Url";
 import {Toast} from "antd-mobile";
-import Tabbar from "./Tabbar";
-import Header from "./Header";
+import Tabbar from "../widgets/Tabbar";
+import Header from "../widgets/Header";
 import "./NewsView.css";
 
 class NewsView extends React.Component {

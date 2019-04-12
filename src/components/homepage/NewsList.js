@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {Toast} from "antd-mobile";
 import Url from "../../helpers/Url";
-import Header from "../Header";
-import Tabbar from "../Tabbar";
+import Header from "../../widgets/Header";
+import Tabbar from "../../widgets/Tabbar";
 
 /**
  * News list
