@@ -1,5 +1,9 @@
 @import '~antd-mobile/dist/antd-mobile.min.css';
 
+html {
+    height: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -8,6 +12,173 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+body, div, dl, dt, dd, ul, ol, li, pre, form, fieldset, input, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #4362BF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #4362BF;
+    text-decoration: underline;
+}
+
+fieldset, img {
+    border: 0 none;
+}
+
+address, caption, cite, code, dfn, em, th, var, i {
+    font-style: normal;
+    font-weight: normal;
+}
+
+ol li, ul li {
+    list-style: none outside none;
+}
+
+caption, th {
+    text-align: left;
+}
+
+q:before, q:after {
+    content: "";
+}
+
+/*table {
+    table-layout: fixed;
+}*/
+th, td {
+    vertical-align: middle;
+}
+
+i {
+    display: inline;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+iframe {
+    background-color: #FFFFFF;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 2px;
+}
+
+input {
+    -moz-background-clip: border;
+    -moz-background-inline-policy: continuous;
+    -moz-background-origin: padding;
+    font-family: \5FAE\8F6F\96C5\9ED1, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    outline: medium none;
+    border-radius: 3px;
+}
+
+
+label input {
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+}
+
+textarea {
+    font-size: 14px;
+    overflow: auto;
+    padding: 1px 0 0 1px;
+    border-radius: 3px;
+}
+
+select {
+    font-size: 14px;
+    padding: 5px 6px;
+    border-radius: 3px;
+    border: #d5d5d5 solid 1px;
+    margin: 0;
+    width: 212px;
+}
+
+cite {
+    display: none;
+    line-height: 33px;
+    text-indent: -999px;
+}
+
+.wrapper {
+    display: block;
+    margin-bottom: .6em;
+    *zoom: 1;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/* 清除浮动 */
+.clearfix:after, .wrapper:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.clearfix, .wrapper {
+    display: block;
+}
+
+.clear {
+    clear: both;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.container {
+    display: block;
+}
+
+
+#page {
+
+}
+
+#page #page-hd {
+}
+
+#page #page-bd {
+    margin: 0 10px 50px 10px;
+    overflow: auto;
+    height: calc(100vh - 80px);
+}
+
+#page #page-ft {
 }
 
 .fullScreen {
@@ -27,4 +198,33 @@ code {
     height: 30px;
     line-height: 30px;
     text-align: center;
+}
+
+
+/*******************************************************************************
+ * data list
+ ******************************************************************************/
+ul.list {
+}
+
+ul.list li {
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    background: url(assets/images/bullet-blue.png) no-repeat left center;
+    padding-left: 16px;
+    border-bottom: #F5F5F5 solid 1px;
+}
+
+ul.list li.left {
+    display: inline-block;
+    float: left;
+    margin-right: 20px;
+}
+
+ul.list li em {
+    float: right;
+    color: #A2A4A5;
 }
