@@ -1,6 +1,10 @@
 import React from "react";
 import "./Tabbar.css"
 import {withRouter} from 'react-router-dom';
+import homepageIcon from "../assets/images/tabbar-homepage.png";
+import newsIcon from "../assets/images/tabbar-news.png";
+import statisticIcon from "../assets/images/tabbar-statistics.png";
+import myIcon from "../assets/images/tabbar-my.png";
 
 class Tabbar extends React.Component {
   
@@ -11,28 +15,28 @@ class Tabbar extends React.Component {
         {
           label: "首页",
           url: "/",
-          icon: "https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg",
+          icon: homepageIcon,
           badge: undefined,
           active: false
         },
         {
           label: "资讯中心",
           url: "/news",
-          icon: "https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg",
+          icon: newsIcon,
           badge: undefined,
           active: false
         },
         {
           label: "订单中心",
           url: "/orders",
-          icon: "https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg",
+          icon: statisticIcon,
           badge: undefined,
           active: false
         },
         {
           label: "我的",
           url: "/my",
-          icon: "https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg",
+          icon: myIcon,
           badge: 1,
           active: false
         }
