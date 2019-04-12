@@ -1,14 +1,21 @@
 import React, {Component} from 'react';
-import FooterTabBar from "./components/FooterTabBar";
-import Header from "./components/Header";
+import Header from "./widgets/Header";
+import Tabbar from "./widgets/Tabbar";
 
 class App extends Component {
   render() {
     return (
-      [
-        <Header></Header>,
-        <FooterTabBar/>
-      ]
+      <div id="page">
+        <div id="page-hd">
+          <Header></Header>
+        </div>
+        <div id="page-bd">
+          Homepage
+        </div>
+        <div id="page-ft">
+          <Tabbar/>
+        </div>
+      </div>
     );
   }
 }
