@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {Toast} from "antd-mobile";
 import Url from "../../helpers/Url";
+import Header from "../Header";
+import Tabbar from "../Tabbar";
 
 /**
  * News list
@@ -40,23 +42,33 @@ class NewsList extends React.Component {
   }
   
   render() {
-    const {title, moreUrl, className} = this.props
+    const {title, className} = this.props
     const {isLoading, items} = this.state
     if (isLoading) {
       Toast.loading("载入中...", 0, null, false);
       return null;
     } else {
       return (
-        <div className={className}>
-          <div className="hd">
-            {title}
+        <div id="page">
+          <div id="page-hd">
+            <Header/>
           </div>
-          <div className="bd">
-            <ul>
-              {items.map(item => <li key={item.id}>
-                <Link to={'/news/' + item.id} title={item.title}>{item.title}</Link>
-              </li>)}
-            </ul>
+          <div id="page-bd">
+            <div className={className}>
+              <div className="hd">
+                {title}
+              </div>
+              <div className="bd">
+                <ul className="list">
+                  {items.map(item => <li key={item.id}>
+                    <Link to={'/news/' + item.id} title={item.title}>{item.title}</Link>
+                  </li>)}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div id="page-ft">
+            <Tabbar/>
           </div>
         </div>
       );
