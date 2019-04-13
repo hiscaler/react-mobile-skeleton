@@ -18,7 +18,7 @@ class IdentityInterface {
 
 class User extends IdentityInterface {
   
-  _cookieName = "_identity"
+  static _cookieName = "_identity"
   
   username = "";
   accessToken = "";
@@ -31,7 +31,7 @@ class User extends IdentityInterface {
   }
   
   getter(key) {
-    const user = Cookies.getJSON(this._cookieName);
+    const user = Cookies.getJSON(User._cookieName);
     if (user.hasOwnProperty(key)) {
       return user[key];
     } else {
@@ -55,8 +55,12 @@ class User extends IdentityInterface {
     return this.getter('accessToken');
   }
   
+  static getIdentity() {
+    return Cookies.getJSON(this._cookieName);
+  }
+  
   login(cookieOptions = {expires: 7, path: ''}) {
-    Cookies.set(this._cookieName, {
+    Cookies.set(User._cookieName, {
       id: this.id,
       username: this.username,
       accessToken: this.accessToken
@@ -64,7 +68,7 @@ class User extends IdentityInterface {
   }
   
   logout() {
-    Cookies.remove(this._cookieName)
+    Cookies.remove(User._cookieName)
   }
   
 }
