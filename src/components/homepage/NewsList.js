@@ -1,6 +1,6 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
-import axios from 'axios'
+import React from 'react';
+import {Link} from 'react-router-dom';
+import axios from 'axios';
 import {Toast} from "antd-mobile";
 import Url from "../../helpers/Url";
 import Header from "../../widgets/Header";
@@ -20,30 +20,30 @@ class NewsList extends React.Component {
   }
   
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isLoading: true,
       items: []
-    }
+    };
   }
   
   componentWillMount() {
     const url = Url.toRoute('news/list', {
       limit: 10
-    })
+    });
     axios.get(url).then((resp) => {
-      console.info(resp)
+      console.info(resp);
       this.setState({
         isLoading: false,
         items: resp.data.data.items
-      })
-      Toast.hide()
+      });
+      Toast.hide();
     })
   }
   
   render() {
-    const {title, className} = this.props
-    const {isLoading, items} = this.state
+    const {title, className} = this.props;
+    const {isLoading, items} = this.state;
     if (isLoading) {
       Toast.loading("载入中...", 0, null, false);
       return null;

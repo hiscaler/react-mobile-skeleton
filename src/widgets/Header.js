@@ -13,8 +13,7 @@ class Header extends Component {
   }
   
   render() {
-    const {text, className} = this.props
-    console.info(this.props)
+    const {text, className} = this.props;
     return (
       <header className={className}>{text}</header>
     );

@@ -14,24 +14,24 @@ class NewsView extends React.Component {
     this.state = {
       isLoading: true,
       article: undefined
-    }
+    };
   }
   
   componentDidMount() {
-    const id = this.props.match.params.id
-    const url = Url.toRoute('news/' + id)
+    const id = this.props.match.params.id;
+    const url = Url.toRoute('news/' + id);
     axios.get(url).then((resp) => {
-      console.info(resp.data.data)
+      console.info(resp.data.data);
       this.setState({
         isLoading: false,
         article: resp.data.data
-      })
-      Toast.hide()
+      });
+      Toast.hide();
     })
   }
   
   render() {
-    const {isLoading, article} = this.state
+    const {isLoading, article} = this.state;
     if (isLoading) {
       Toast.loading("载入中...", 0, null, false);
       return null;
