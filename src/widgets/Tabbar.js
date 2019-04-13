@@ -2,10 +2,19 @@ import React from "react";
 import "./Tabbar.css"
 import {withRouter} from 'react-router-dom';
 import homepageIcon from "../assets/images/tabbar-homepage.png";
+import homepageActiveIcon from "../assets/images/tabbar-homepage-active.png";
 import newsIcon from "../assets/images/tabbar-news.png";
+import newsActiveIcon from "../assets/images/tabbar-news-active.png";
 import statisticIcon from "../assets/images/tabbar-statistics.png";
+import statisticActiveIcon from "../assets/images/tabbar-statistics-active.png";
 import myIcon from "../assets/images/tabbar-my.png";
+import myActiveIcon from "../assets/images/tabbar-my-active.png";
 
+/**
+ * Tabbar
+ *
+ * @author hiscaler <hiscaler@gmail.com>
+ */
 class Tabbar extends React.Component {
   
   constructor(props) {
@@ -15,6 +24,10 @@ class Tabbar extends React.Component {
         {
           label: "首页",
           url: "/",
+          icons: {
+            default: homepageIcon,
+            active: homepageActiveIcon
+          },
           icon: homepageIcon,
           badge: undefined,
           active: false
@@ -22,6 +35,10 @@ class Tabbar extends React.Component {
         {
           label: "资讯中心",
           url: "/news",
+          icons: {
+            default: newsIcon,
+            active: newsActiveIcon
+          },
           icon: newsIcon,
           badge: undefined,
           active: false
@@ -29,6 +46,10 @@ class Tabbar extends React.Component {
         {
           label: "订单中心",
           url: "/orders",
+          icons: {
+            default: statisticIcon,
+            active: statisticActiveIcon
+          },
           icon: statisticIcon,
           badge: undefined,
           active: false
@@ -36,6 +57,10 @@ class Tabbar extends React.Component {
         {
           label: "我的",
           url: "/my",
+          icons: {
+            default: myIcon,
+            active: myActiveIcon
+          },
           icon: myIcon,
           badge: 1,
           active: false
@@ -45,15 +70,16 @@ class Tabbar extends React.Component {
   }
   
   componentWillMount() {
-    const pathname = this.props.location.pathname
-    let buttons = this.state.buttons
+    const pathname = this.props.location.pathname;
+    let buttons = this.state.buttons;
     for (let i in buttons) {
       let url = buttons[i].url, len = url.length
       if (pathname === url || (len > 1 && pathname.substr(0, len) === url)) {
-        buttons[i].active = true
+        buttons[i].active = true;
+        buttons[i].icon = buttons[i].icons.active;
       }
     }
-    this.setState({buttons: buttons})
+    this.setState({buttons: buttons});
   }
   
   render() {
