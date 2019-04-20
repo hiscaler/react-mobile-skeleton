@@ -5,7 +5,11 @@ import iconInformation from "../assets/images/icon-information.svg";
 
 const myImg = src => <img src={src} className="am-icon am-icon-md" alt=""/>;
 
-
+/**
+ * Error component
+ *
+ * @author hiscaler <hiscaler@gmail.com>
+ */
 class Error extends React.Component {
   
   static defaultProps = {
@@ -15,7 +19,6 @@ class Error extends React.Component {
   }
   
   render() {
-    
     return (
       <div className="widget-error">
         <Result
@@ -25,9 +28,7 @@ class Error extends React.Component {
           buttonText="返回首页"
           buttonType="primary"
           onButtonClick={
-            function () {
-              window.location.href = "/"
-            }
+            this.props.history.push('/')
           }
         />
       </div>
