@@ -1,6 +1,8 @@
 import React from 'react';
 import {InputItem, Button} from "antd-mobile";
 import User from "../helpers/Identity";
+import WhiteSpace from "antd-mobile/es/white-space";
+import WingBlank from "antd-mobile/es/wing-blank";
 
 /**
  * Login Component
@@ -37,31 +39,40 @@ class Login extends React.Component {
   
   render() {
     return (
-      <div>
-        <form action="">
-          <div>
-            <InputItem
-              clear
-              placeholder="请输入登录帐号"
-              onChange={value => this.handleChange("username", value)}
-            >账号</InputItem>
-          </div>
-          <div>
-            <InputItem
-              type="password"
-              clear
-              placeholder="请输入登录密码"
-              onChange={value => this.handleChange("password", value)}
-            >密码</InputItem>
-          </div>
+      <WingBlank>
+        <div>
+          <form action="">
+            <div>
+              <InputItem
+                clear
+                placeholder="请输入登录帐号"
+                onChange={value => this.handleChange("username", value)}
+              >账号</InputItem>
+            </div>
+            <div>
+              <InputItem
+                type="password"
+                clear
+                placeholder="请输入登录密码"
+                onChange={value => this.handleChange("password", value)}
+              >密码</InputItem>
+            </div>
+            <div>
+              <Button
+                type="primary"
+                onClick={this.handleLogin.bind(this)}
+              >登录</Button>
+            </div>
+          </form>
+          <WhiteSpace/>
           <div>
             <Button
+              href="/"
               type="primary"
-              onClick={this.handleLogin.bind(this)}
-            >登录</Button>
+            >首页</Button>
           </div>
-        </form>
-      </div>
+        </div>
+      </WingBlank>
     );
   }
   

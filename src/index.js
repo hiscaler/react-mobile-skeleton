@@ -8,6 +8,9 @@ import NewsList from "./components/homepage/NewsList";
 import NewsView from "./components/NewsView";
 import Error from "./components/Error";
 import NotFound from "./widgets/NotFound";
+import Login from "./components/Login";
+import Dashboard from "./components/my/Dashboard";
+import Authentication from "./components/Authentication";
 
 ReactDOM.render((
   <Router>
@@ -15,7 +18,9 @@ ReactDOM.render((
       <Route path="/" exact component={App}/>
       <Route path="/news" exact component={NewsList}/>
       <Route path="/news/:id" component={NewsView}/>
+      <Route path="/my" component={Authentication(Dashboard)}/>
       <Route path="/error" component={Error}/>
+      <Route path="/passport/login" component={Login}/>
       <Route path="*" component={NotFound}/>
     </Switch>
   </Router>
