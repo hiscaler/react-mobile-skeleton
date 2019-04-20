@@ -101,7 +101,7 @@ class User {
     return Cookies.getJSON(Identity._cookieName);
   }
   
-  login(username, password, cookieOptions = {expires: 7, path: ''}) {
+  login(username, password, cookieOptions = {expires: 7, path: '/'}) {
     // @todo 实现接口登录处理
     this.id = 1;
     this.username = username;
@@ -111,12 +111,12 @@ class User {
     identity.id = this.id
     identity.username = this.username;
     identity.accessToken = this.accessToken;
-    Cookies.set(Identity._cookieName, identity);
+    Cookies.set(Identity._cookieName, identity, cookieOptions);
     return identity
   }
   
-  logout() {
-    Cookies.remove(Identity._cookieName)
+  static logout() {
+    Cookies.remove(Identity._cookieName, {path: '/'})
   }
   
 }

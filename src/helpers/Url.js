@@ -1,4 +1,5 @@
 import Config from "../config/config";
+import User from "./Identity";
 
 /**
  * URL Helper class
@@ -23,7 +24,12 @@ class Url {
     if (qs.length) {
       url += qs.join('&') + '&'
     }
-    url += 'accessToken=' + Config.accessToken
+    const identity = User.getIdentity();
+    if (identity && !identity._isGuest && identity._accessToken) {
+      url += 'accessToken=' + identity._accessToken;
+    }
+    
+    console.info("API URL is " + url)
     
     return url
   }
