@@ -8,67 +8,115 @@ import Cookies from 'js-cookie';
 
 class IdentityInterface {
   
-  id = null;
+  static _cookieName = "_identity"
   
-  getId() {
-    return this.id;
+  
+  constructor() {
+    this._isGuest = true;
+    this._id = 0;
+    this._username = null;
+    this._accessToken = null;
+  }
+  
+  set isGuest(v) {
+    this._isGuest = !!v;
+  }
+  
+  get isGuest() {
+    return this._isGuest;
+  }
+  
+  set id(id) {
+    this._id = id;
+  }
+  
+  get id() {
+    return this._id;
+  }
+  
+  set username(username) {
+    this._username = username;
+  }
+  
+  get username() {
+    return this._username;
+  }
+  
+  set accessToken(token) {
+    this._accessToken = token;
+  }
+  
+  get accessToken() {
+    return this._accessToken;
   }
   
 }
 
-class User extends IdentityInterface {
+class Identity extends IdentityInterface {
+
+}
+
+class User {
   
-  static _cookieName = "_identity"
-  
-  username = "";
-  accessToken = "";
-  
-  constructor({id, username, accessToken}) {
-    super()
-    this.id = id;
-    this.username = username;
-    this.accessToken = accessToken;
+  constructor() {
+    this._id = 0
+    this._username = null;
+    this._password = null;
+    this._accessToken = null;
   }
   
-  getter(key) {
-    const user = Cookies.getJSON(User._cookieName);
-    if (user.hasOwnProperty(key)) {
-      return user[key];
-    } else {
-      return null;
-    }
+  set id(id) {
+    this._id = id;
   }
   
-  getId() {
-    return this.getter('id');
+  get id() {
+    return this._id
   }
   
-  getIsGuest() {
-    return this.getId() ? true : false;
+  set username(username) {
+    this._username = username;
   }
   
   get username() {
-    return this.getter('username');
+    return this._username;
+  }
+  
+  set password(password) {
+    this._password = password
+  }
+  
+  set accessToken(accessToken) {
+    this._accessToken = accessToken;
   }
   
   get accessToken() {
-    return this.getter('accessToken');
+    return this._accessToken;
+  }
+  
+  getIsGuest() {
+    return !!this.id;
   }
   
   static getIdentity() {
-    return Cookies.getJSON(this._cookieName);
+    return Cookies.getJSON(Identity._cookieName);
   }
   
-  login(cookieOptions = {expires: 7, path: ''}) {
-    Cookies.set(User._cookieName, {
-      id: this.id,
-      username: this.username,
-      accessToken: this.accessToken
-    }, cookieOptions);
+  login(username, password, cookieOptions = {expires: 7, path: ''}) {
+    // @todo 实现接口登录处理
+    this.id = 1;
+    this.username = username;
+    this.accessToken = "";
+    let identity = new Identity();
+    identity.isGuest = false;
+    identity.id = this.id
+    identity.username = this.username;
+    identity.accessToken = this.accessToken;
+    Cookies.set(Identity._cookieName, identity);
+    return identity
   }
   
   logout() {
-    Cookies.remove(User._cookieName)
+    Cookies.remove(Identity._cookieName)
   }
   
 }
