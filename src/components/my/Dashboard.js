@@ -21,7 +21,7 @@ class Dashboard extends React.Component {
             this.props.history.push('/news')
           }}
         >
-          咨询中心
+          资讯中心
         </Item>
         <Item
           thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
