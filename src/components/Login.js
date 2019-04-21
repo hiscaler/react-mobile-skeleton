@@ -1,5 +1,5 @@
 import React from 'react';
-import {InputItem, Button} from "antd-mobile";
+import {InputItem, Button, Toast} from "antd-mobile";
 import User from "../helpers/Identity";
 import WhiteSpace from "antd-mobile/es/white-space";
 import WingBlank from "antd-mobile/es/wing-blank";
@@ -34,7 +34,9 @@ class Login extends React.Component {
     const {username, password} = this.state;
     let user = new User()
     user.login(username, password);
-    this.props.history.push('/');
+    Toast.success('登录成功!', 1, () => {
+      this.props.history.push('/');
+    });
   }
   
   render() {
