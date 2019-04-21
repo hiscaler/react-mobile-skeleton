@@ -19,7 +19,7 @@ class Notice extends React.Component {
   
   componentWillMount() {
     const url = Url.toRoute('news/list', {
-      limit: this.props.limit
+      limit: 1
     })
     axios.get(url).then((resp) => {
       if (resp.data.success) {
@@ -41,7 +41,6 @@ class Notice extends React.Component {
     } else {
       return null
     }
-    
   }
   
 }
