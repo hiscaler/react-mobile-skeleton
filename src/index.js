@@ -4,19 +4,19 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import NewsList from "./components/homepage/NewsList";
-import NewsView from "./components/NewsView";
 import Error from "./components/Error";
 import NotFound from "./widgets/NotFound";
 import Login from "./components/Login";
 import Dashboard from "./components/my/Dashboard";
 import Authentication from "./components/Authentication";
+import NewsIndex from "./components/news/NewsIndex";
+import NewsView from "./components/news/NewsView";
 
 ReactDOM.render((
   <Router>
     <Switch>
       <Route path="/" exact component={App}/>
-      <Route path="/news" exact component={NewsList}/>
+      <Route path="/news" exact component={NewsIndex}/>
       <Route path="/news/:id" component={NewsView}/>
       <Route path="/my" component={Authentication(Dashboard)}/>
       <Route path="/error" component={Error}/>
