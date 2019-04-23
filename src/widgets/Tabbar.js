@@ -1,6 +1,6 @@
 import React from "react";
 import "./Tabbar.css"
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 import homepageIcon from "../assets/images/tabbar-homepage.png";
 import homepageActiveIcon from "../assets/images/tabbar-homepage-active.png";
 import newsIcon from "../assets/images/tabbar-news.png";
@@ -86,10 +86,12 @@ class Tabbar extends React.Component {
     return (
       <div id="tabbar" className="am-tabs-tab-bar-wrap">
         <div className="am-tab-bar-bar">
-          {this.state.buttons.map(button => <a className={"am-tab-bar-tab" + (button.active ? " tabbar-active" : "")}
-                                               href={button.url}
-                                               key={button.url}>
-            <div className="am-tab-bar-tab-icon">
+          {this.state.buttons.map(button =>
+            <Link className={"am-tab-bar-tab" + (button.active ? " tabbar-active" : "")}
+                  to={button.url}
+                  key={button.url}
+            >
+              <div className="am-tab-bar-tab-icon">
               <span className={button.badge && "am-badge am-tab-bar-tab-badge tab-badge"}>
                 <div
                   style={{
@@ -100,9 +102,10 @@ class Tabbar extends React.Component {
                 </div>
                 {button.badge && <sup className="am-badge-text">1</sup>}
               </span>
-            </div>
-            <p className="am-tab-bar-tab-title">{button.label}</p>
-          </a>)}
+              </div>
+              <p className="am-tab-bar-tab-title">{button.label}</p>
+            </Link>
+          )}
         </div>
       </div>
     );
