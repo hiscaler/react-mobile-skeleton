@@ -70,13 +70,23 @@ class Tabbar extends React.Component {
   }
   
   componentWillMount() {
-    const pathname = this.props.location.pathname;
+    this.activeTabbarItem(this.props.location.pathname)
+  }
+  
+  componentWillReceiveProps(nextProps) {
+    this.activeTabbarItem(nextProps.location.pathname)
+  }
+  
+  activeTabbarItem(pathname) {
     let buttons = this.state.buttons;
     for (let i in buttons) {
       let url = buttons[i].url, len = url.length
       if (pathname === url || (len > 1 && pathname.substr(0, len) === url)) {
         buttons[i].active = true;
         buttons[i].icon = buttons[i].icons.active;
+      } else {
+        buttons[i].active = false;
+        buttons[i].icon = buttons[i].icons.default;
       }
     }
     this.setState({buttons: buttons});

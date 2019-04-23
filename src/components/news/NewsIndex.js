@@ -3,8 +3,6 @@ import {Link} from 'react-router-dom';
 import axios from 'axios';
 import {Toast} from "antd-mobile";
 import Url from "../../helpers/Url";
-import Header from "../../widgets/Header";
-import Tabbar from "../../widgets/Tabbar";
 
 /**
  * News index
@@ -49,26 +47,16 @@ class NewsIndex extends React.Component {
       return null;
     } else {
       return (
-        <div id="page">
-          <div id="page-hd">
-            <Header/>
+        <div className={className}>
+          <div className="hd">
+            {title}
           </div>
-          <div id="page-bd">
-            <div className={className}>
-              <div className="hd">
-                {title}
-              </div>
-              <div className="bd">
-                <ul className="list">
-                  {items.map(item => <li key={item.id}>
-                    <Link to={'/news/' + item.id} title={item.title}>{item.title}</Link>
-                  </li>)}
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div id="page-ft">
-            <Tabbar/>
+          <div className="bd">
+            <ul className="list">
+              {items.map(item => <li key={item.id}>
+                <Link to={'/news/' + item.id} title={item.title}>{item.title}</Link>
+              </li>)}
+            </ul>
           </div>
         </div>
       );
