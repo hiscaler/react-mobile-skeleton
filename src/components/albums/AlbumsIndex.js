@@ -3,7 +3,7 @@ import {Toast} from "antd-mobile"
 import {Link} from "react-router-dom"
 import Url from "../../helpers/Url"
 import axios from "axios"
-import "./AlbumIndex.css"
+import "./AlbumsIndex.css"
 
 /**
  * Albums index
