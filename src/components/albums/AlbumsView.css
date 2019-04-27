@@ -1,0 +1,22 @@
+.album-view {
+}
+
+.album-view .title {
+    font-weight: bold;
+    border-bottom: #cccccc solid 1px;
+    padding-bottom: 15px;
+}
+
+.album-view .description {
+    line-height: 20px;
+    color: #cccccc;
+}
+
+.album-view .screenshot {
+    padding: 10px;
+}
+
+.album-view .screenshot img {
+    width: 100%;
+    max-width: 100%;
+}
