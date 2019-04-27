@@ -30,7 +30,7 @@ class AlbumsView extends React.Component {
         isLoading: false,
         item: resp.data.data
       });
-      Toast.hide();
+      Toast.hide()
     })
   }
   
