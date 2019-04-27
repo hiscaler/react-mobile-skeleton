@@ -8,10 +8,12 @@ import Authentication from "../components/Authentication";
 import Dashboard from "../components/my/Dashboard";
 import Error from "../components/Error";
 import Login from "../components/Login";
+import AlbumsIndex from "../components/albums/AlbumsIndex";
 
 const Routes = () => (
   <Switch>
     <Route path="/" exact component={App}/>
+    <Route path="/albums" exact component={AlbumsIndex}/>
     <Route path="/news" exact component={NewsIndex}/>
     <Route path="/news/:id" component={NewsView}/>
     <Route path="/my" component={Authentication(Dashboard)}/>

@@ -44,8 +44,8 @@ class Tabbar extends React.Component {
           active: false
         },
         {
-          label: "订单中心",
-          url: "/orders",
+          label: "相册",
+          url: "/albums",
           icons: {
             default: statisticIcon,
             active: statisticActiveIcon
@@ -110,7 +110,7 @@ class Tabbar extends React.Component {
                     background: "url(" + button.icon + ") center center / 21px 21px no-repeat"
                   }}>
                 </div>
-                {button.badge && <sup className="am-badge-text">1</sup>}
+                {button.badge && <sup className="am-badge-dot"></sup>}
               </span>
               </div>
               <p className="am-tab-bar-tab-title">{button.label}</p>

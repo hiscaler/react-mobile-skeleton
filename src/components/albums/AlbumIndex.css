@@ -1,0 +1,27 @@
+.albums {
+    padding: 10px;
+}
+
+.albums .photos li {
+    display: block;
+    width: 50%;
+    text-align: center;
+    float: left;
+    margin-bottom: 10px;
+}
+
+.albums .photos li a {
+    display: block;
+}
+
+.albums .photos li img {
+    width: 90px;
+    max-width: 90px;
+    height: 120px;
+}
+
+.albums .photos li .title {
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+}
