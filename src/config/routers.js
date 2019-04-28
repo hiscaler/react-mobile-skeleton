@@ -13,11 +13,11 @@ import AlbumsView from "../components/albums/AlbumsView";
 
 const Routes = () => (
   <Switch>
-    <Route path="/" exact component={App}/>
-    <Route path="/albums" exact component={AlbumsIndex}/>
-    <Route path="/albums/:id" exact component={AlbumsView}/>
-    <Route path="/news" exact component={NewsIndex}/>
-    <Route path="/news/:id" component={NewsView}/>
+    <Route path="/" exact component={Authentication(App)}/>
+    <Route path="/albums" exact component={Authentication(AlbumsIndex)}/>
+    <Route path="/albums/:id" exact component={Authentication(AlbumsView)}/>
+    <Route path="/news" exact component={Authentication(NewsIndex)}/>
+    <Route path="/news/:id" component={Authentication(NewsView)}/>
     <Route path="/my" component={Authentication(Dashboard)}/>
     <Route path="/error" component={Error}/>
     <Route path="/passport/login" component={Login}/>
