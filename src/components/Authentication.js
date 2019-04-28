@@ -1,5 +1,5 @@
 import React from 'react'
-import User from "../helpers/Identity";
+import User from "../helpers/Identity"
 
 /**
  * 组件认证处理
@@ -22,15 +22,15 @@ function Authentication(Component) {
     // }
     //
     state = {
-      login: true,
+      login: false
     }
     
     componentWillMount() {
-      this.checkAuth();
+      this.checkAuth()
     }
     
     componentWillReceiveProps(nextProps) {
-      this.checkAuth();
+      this.checkAuth()
     }
     
     checkAuth() {
@@ -49,11 +49,11 @@ function Authentication(Component) {
           redirectUri += location.search
         }
         console.info(redirectUri)
-        this.props.history.push('/passport/login?redirect_uri=' + encodeURIComponent(redirectUri));
-        return;
+        this.props.history.push('/passport/login?redirect_uri=' + encodeURIComponent(redirectUri))
+        return
       }
       
-      this.setState({login});
+      this.setState({login})
     }
     
     render() {
@@ -68,4 +68,4 @@ function Authentication(Component) {
   return Component.AuthenticatedComponent
 }
 
-export default Authentication;
+export default Authentication
