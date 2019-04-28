@@ -26,6 +26,7 @@ class NewsList extends React.Component {
   }
   
   componentWillMount() {
+    Toast.loading("载入中...", 0, null, false);
     const url = Url.toRoute('news/list', {
       limit: 10
     });
@@ -39,11 +40,14 @@ class NewsList extends React.Component {
     })
   }
   
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    Toast.hide()
+  }
+  
   render() {
     const {title, className} = this.props;
     const {isLoading, items} = this.state;
     if (isLoading) {
-      Toast.loading("载入中...", 0, null, false);
       return null;
     } else {
       return (

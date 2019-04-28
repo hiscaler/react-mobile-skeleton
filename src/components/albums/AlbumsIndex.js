@@ -27,6 +27,7 @@ class AlbumsIndex extends React.Component {
   }
   
   componentWillMount() {
+    Toast.loading("载入中...", 0, null, false)
     const url = Url.toRoute('albums', {
       page: this.props.page,
       pageSize: this.props.pageSize
@@ -37,16 +38,18 @@ class AlbumsIndex extends React.Component {
         isLoading: false,
         items: resp.data.data.items
       })
-      Toast.hide()
     })
+  }
+  
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    Toast.hide()
   }
   
   render() {
     const {page, pageSize} = this.props
     const {isLoading, items} = this.state
     if (isLoading) {
-      Toast.loading("载入中...", 0, null, false)
-      return null
+      return ''
     } else {
       return (
         <div className="albums">
