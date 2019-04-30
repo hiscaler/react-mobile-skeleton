@@ -10,6 +10,7 @@ import Error from "../components/Error"
 import Login from "../components/Login"
 import AlbumsIndex from "../components/albums/AlbumsIndex"
 import AlbumsView from "../components/albums/AlbumsView"
+import MemberProfile from "../components/my/MemberProfile";
 
 const Routes = () => (
   <Switch>
@@ -18,6 +19,7 @@ const Routes = () => (
     <Route path="/albums/:id" exact component={Authentication(AlbumsView)}/>
     <Route path="/news" exact component={Authentication(NewsIndex)}/>
     <Route path="/news/:id" component={Authentication(NewsView)}/>
+    <Route path="/my/profile" component={Authentication(MemberProfile)}/>
     <Route path="/my" component={Authentication(Dashboard)}/>
     <Route path="/error" component={Error}/>
     <Route path="/passport/login" component={Login}/>

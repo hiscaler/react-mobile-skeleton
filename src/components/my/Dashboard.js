@@ -16,12 +16,21 @@ class Dashboard extends React.Component {
       <List renderHeader={() => '会员中心'}>
         <Item
           thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
-          arrow="horizontal"
           onClick={() => {
             this.props.history.push('/news')
           }}
+          arrow="horizontal"
         >
           资讯中心
+        </Item>
+        <Item
+          thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          onClick={() => {
+            this.props.history.push('/my/profile')
+          }}
+          arrow="horizontal"
+        >
+          个人资料
         </Item>
         <Item
           thumb="https://zos.alipayobjects.com/rmsportal/UmbJMbWOejVOpxe.png"
