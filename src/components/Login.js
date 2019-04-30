@@ -1,8 +1,8 @@
-import React from 'react';
-import {InputItem, Button, Toast} from "antd-mobile";
-import User from "../helpers/Identity";
-import WhiteSpace from "antd-mobile/es/white-space";
-import WingBlank from "antd-mobile/es/wing-blank";
+import React from 'react'
+import {InputItem, Button, Toast} from "antd-mobile"
+import User from "../helpers/Identity"
+import WhiteSpace from "antd-mobile/es/white-space"
+import WingBlank from "antd-mobile/es/wing-blank"
 
 /**
  * Login Component
@@ -75,9 +75,9 @@ class Login extends React.Component {
           </div>
         </div>
       </WingBlank>
-    );
+    )
   }
   
 }
 
-export default Login;
+export default Login

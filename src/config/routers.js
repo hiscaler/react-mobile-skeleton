@@ -1,15 +1,15 @@
-import React from 'react';
-import {Route, Switch} from "react-router-dom";
-import NotFound from '../widgets/NotFound.js';
-import App from "../App";
-import NewsIndex from "../components/news/NewsIndex";
-import NewsView from "../components/news/NewsView";
-import Authentication from "../components/Authentication";
-import Dashboard from "../components/my/Dashboard";
-import Error from "../components/Error";
-import Login from "../components/Login";
-import AlbumsIndex from "../components/albums/AlbumsIndex";
-import AlbumsView from "../components/albums/AlbumsView";
+import React from 'react'
+import {Route, Switch} from "react-router-dom"
+import NotFound from '../widgets/NotFound.js'
+import App from "../App"
+import NewsIndex from "../components/news/NewsIndex"
+import NewsView from "../components/news/NewsView"
+import Authentication from "../components/Authentication"
+import Dashboard from "../components/my/Dashboard"
+import Error from "../components/Error"
+import Login from "../components/Login"
+import AlbumsIndex from "../components/albums/AlbumsIndex"
+import AlbumsView from "../components/albums/AlbumsView"
 
 const Routes = () => (
   <Switch>
@@ -25,4 +25,4 @@ const Routes = () => (
   </Switch>
 )
 
-export default Routes;
+export default Routes

@@ -37,7 +37,7 @@ class Notice extends React.Component {
         <NoticeBar marqueeProps={{loop: false, style: {padding: '0 7.5px'}}}>
           {item.title}
         </NoticeBar>
-      );
+      )
     } else {
       return null
     }

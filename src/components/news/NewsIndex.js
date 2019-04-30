@@ -1,8 +1,8 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
-import axios from 'axios';
-import {Toast} from "antd-mobile";
-import Url from "../../helpers/Url";
+import React from 'react'
+import {Link} from 'react-router-dom'
+import axios from 'axios'
+import {Toast} from "antd-mobile"
+import Url from "../../helpers/Url"
 
 /**
  * News index
@@ -15,27 +15,26 @@ class NewsIndex extends React.Component {
     title: "",
     moreUrl: "",
     className: "widget-news-list"
-  }
+  };
   
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       isLoading: true,
       items: []
-    };
+    }
   }
   
   componentWillMount() {
     Toast.loading("载入中...", 0, null, false)
     const url = Url.toRoute('news/list', {
       limit: 10
-    });
+    })
     axios.get(url).then((resp) => {
-      console.info(resp);
       this.setState({
         isLoading: false,
         items: resp.data.data.items
-      });
+      })
     })
   }
   
@@ -44,10 +43,9 @@ class NewsIndex extends React.Component {
   }
   
   render() {
-    const {title, className} = this.props;
-    const {isLoading, items} = this.state;
+    const {title, className} = this.props, {isLoading, items} = this.state
     if (isLoading) {
-      return null;
+      return null
     } else {
       return (
         <div className={className}>
@@ -62,7 +60,7 @@ class NewsIndex extends React.Component {
             </ul>
           </div>
         </div>
-      );
+      )
     }
     
   }

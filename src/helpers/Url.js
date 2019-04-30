@@ -1,5 +1,5 @@
-import Config from "../config/config";
-import User from "./Identity";
+import Config from "../config/config"
+import User from "./Identity"
 
 /**
  * URL Helper class
@@ -36,4 +36,4 @@ class Url {
   
 }
 
-export default Url;
+export default Url

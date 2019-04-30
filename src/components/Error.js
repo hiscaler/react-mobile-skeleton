@@ -32,8 +32,8 @@ class Error extends React.Component {
           }
         />
       </div>
-    );
+    )
   }
 }
 
-export default Error;
+export default Error

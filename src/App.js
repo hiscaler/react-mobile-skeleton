@@ -1,7 +1,7 @@
-import React, {Component, Fragment} from 'react';
-import Notice from "./components/Notice";
-import {WhiteSpace} from "antd-mobile";
-import NewsList from "./components/homepage/NewsList";
+import React, {Component, Fragment} from 'react'
+import Notice from "./components/Notice"
+import {WhiteSpace} from "antd-mobile"
+import NewsList from "./components/homepage/NewsList"
 
 class App extends Component {
   render() {
@@ -15,8 +15,8 @@ class App extends Component {
           title="最新资讯"
         />
       </Fragment>
-    );
+    )
   }
 }
 
-export default App;
+export default App

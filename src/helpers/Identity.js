@@ -12,34 +12,34 @@ class IdentityInterface {
   
   
   constructor() {
-    this._isGuest = true;
-    this._id = 0;
-    this._username = null;
-    this._accessToken = null;
+    this._isGuest = true
+    this._id = 0
+    this._username = null
+    this._accessToken = null
   }
   
   set isGuest(v) {
-    this._isGuest = !!v;
+    this._isGuest = !!v
   }
   
   get isGuest() {
-    return this._isGuest;
+    return this._isGuest
   }
   
   set id(id) {
-    this._id = id;
+    this._id = id
   }
   
   get id() {
-    return this._id;
+    return this._id
   }
   
   set username(username) {
-    this._username = username;
+    this._username = username
   }
   
   get username() {
-    return this._username;
+    return this._username
   }
   
   set accessToken(token) {
@@ -47,7 +47,7 @@ class IdentityInterface {
   }
   
   get accessToken() {
-    return this._accessToken;
+    return this._accessToken
   }
   
 }
@@ -60,13 +60,13 @@ class User {
   
   constructor() {
     this._id = 0
-    this._username = null;
-    this._password = null;
-    this._accessToken = null;
+    this._username = null
+    this._password = null
+    this._accessToken = null
   }
   
   set id(id) {
-    this._id = id;
+    this._id = id
   }
   
   get id() {
@@ -74,11 +74,11 @@ class User {
   }
   
   set username(username) {
-    this._username = username;
+    this._username = username
   }
   
   get username() {
-    return this._username;
+    return this._username
   }
   
   set password(password) {
@@ -86,11 +86,11 @@ class User {
   }
   
   set accessToken(accessToken) {
-    this._accessToken = accessToken;
+    this._accessToken = accessToken
   }
   
   get accessToken() {
-    return this._accessToken;
+    return this._accessToken
   }
   
   getIsGuest() {
@@ -98,20 +98,20 @@ class User {
   }
   
   static getIdentity() {
-    return Cookies.getJSON(Identity._cookieName);
+    return Cookies.getJSON(Identity._cookieName)
   }
   
   login(username, password, cookieOptions = {expires: 7, path: '/'}) {
     // @todo 实现接口登录处理
-    this.id = 1;
-    this.username = username;
-    this.accessToken = "";
-    let identity = new Identity();
-    identity.isGuest = false;
+    this.id = 1
+    this.username = username
+    this.accessToken = "FF78F2D3-C2A5-2875-0EE2-EB6803A67639"
+    let identity = new Identity()
+    identity.isGuest = false
     identity.id = this.id
-    identity.username = this.username;
-    identity.accessToken = this.accessToken;
-    Cookies.set(Identity._cookieName, identity, cookieOptions);
+    identity.username = this.username
+    identity.accessToken = this.accessToken
+    Cookies.set(Identity._cookieName, identity, cookieOptions)
     return identity
   }
   
@@ -121,5 +121,5 @@ class User {
   
 }
 
-export default User;
+export default User
 

@@ -1,14 +1,14 @@
-import React from "react";
+import React from "react"
 import "./Tabbar.css"
-import {withRouter, Link} from 'react-router-dom';
-import homepageIcon from "../assets/images/tabbar-homepage.png";
-import homepageActiveIcon from "../assets/images/tabbar-homepage-active.png";
-import newsIcon from "../assets/images/tabbar-news.png";
-import newsActiveIcon from "../assets/images/tabbar-news-active.png";
-import statisticIcon from "../assets/images/tabbar-statistics.png";
-import statisticActiveIcon from "../assets/images/tabbar-statistics-active.png";
-import myIcon from "../assets/images/tabbar-my.png";
-import myActiveIcon from "../assets/images/tabbar-my-active.png";
+import {withRouter, Link} from 'react-router-dom'
+import homepageIcon from "../assets/images/tabbar-homepage.png"
+import homepageActiveIcon from "../assets/images/tabbar-homepage-active.png"
+import newsIcon from "../assets/images/tabbar-news.png"
+import newsActiveIcon from "../assets/images/tabbar-news-active.png"
+import statisticIcon from "../assets/images/tabbar-statistics.png"
+import statisticActiveIcon from "../assets/images/tabbar-statistics-active.png"
+import myIcon from "../assets/images/tabbar-my.png"
+import myActiveIcon from "../assets/images/tabbar-my-active.png"
 
 /**
  * Tabbar
@@ -78,18 +78,18 @@ class Tabbar extends React.Component {
   }
   
   activeTabbarItem(pathname) {
-    let buttons = this.state.buttons;
+    let buttons = this.state.buttons
     for (let i in buttons) {
       let url = buttons[i].url, len = url.length
       if (pathname === url || (len > 1 && pathname.substr(0, len) === url)) {
         buttons[i].active = true;
-        buttons[i].icon = buttons[i].icons.active;
+        buttons[i].icon = buttons[i].icons.active
       } else {
         buttons[i].active = false;
-        buttons[i].icon = buttons[i].icons.default;
+        buttons[i].icon = buttons[i].icons.default
       }
     }
-    this.setState({buttons: buttons});
+    this.setState({buttons: buttons})
   }
   
   render() {
@@ -118,7 +118,7 @@ class Tabbar extends React.Component {
           )}
         </div>
       </div>
-    );
+    )
   }
   
 }
