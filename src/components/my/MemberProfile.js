@@ -32,7 +32,7 @@ class MemberProfile extends React.Component {
     })
   }
   
-  handleSubmit() {
+  handleSubmit(event) {
     const payload = new FormData()
     payload.real_name = this.state.real_name
     payload.mobile_phone = this.state.mobile_phone
@@ -43,6 +43,7 @@ class MemberProfile extends React.Component {
       Toast.success('会员资料修改成功')
       console.log(res)
     })
+    event.preventDefault()
   }
   
   render() {
