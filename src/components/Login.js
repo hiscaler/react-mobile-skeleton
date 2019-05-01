@@ -15,7 +15,7 @@ class Login extends React.Component {
     super(props)
     const identity = User.getIdentity()
     if (identity && !identity._isGuest) {
-      this.props.history.push('/');
+      this.props.history.push('/')
     }
     
     this.state = {
@@ -27,7 +27,7 @@ class Login extends React.Component {
   handleChange(key, value) {
     this.setState({
       [key]: value
-    });
+    })
   }
   
   handleLogin() {
@@ -36,7 +36,7 @@ class Login extends React.Component {
     user.login(username, password);
     Toast.success('登录成功!', 1, () => {
       this.props.history.push('/');
-    });
+    })
   }
   
   render() {

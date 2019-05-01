@@ -1,6 +1,6 @@
-import React from "react";
-import {List} from "antd-mobile";
-import User from "../../helpers/Identity";
+import React from "react"
+import {List} from "antd-mobile"
+import User from "../../helpers/Identity"
 
 const Item = List.Item
 
@@ -43,9 +43,9 @@ class Dashboard extends React.Component {
           退出
         </Item>
       </List>
-    );
+    )
   }
   
 }
 
-export default Dashboard;
+export default Dashboard

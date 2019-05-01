@@ -10,7 +10,7 @@ import Error from "../components/Error"
 import Login from "../components/Login"
 import AlbumsIndex from "../components/albums/AlbumsIndex"
 import AlbumsView from "../components/albums/AlbumsView"
-import MemberProfile from "../components/my/MemberProfile";
+import MemberProfile from "../components/my/MemberProfile"
 
 const Routes = () => (
   <Switch>

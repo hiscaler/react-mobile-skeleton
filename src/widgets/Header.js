@@ -16,7 +16,7 @@ class Header extends Component {
     const {text, className} = this.props;
     return (
       <header className={className}>{text}</header>
-    );
+    )
   }
 }
 

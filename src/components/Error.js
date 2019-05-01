@@ -1,9 +1,9 @@
-import React from "react";
-import {Result} from "antd-mobile";
-import "./Error.css";
-import iconInformation from "../assets/images/icon-information.svg";
+import React from "react"
+import {Result} from "antd-mobile"
+import "./Error.css"
+import iconInformation from "../assets/images/icon-information.svg"
 
-const myImg = src => <img src={src} className="am-icon am-icon-md" alt=""/>;
+const myImg = src => <img src={src} className="am-icon am-icon-md" alt=""/>
 
 /**
  * Error component

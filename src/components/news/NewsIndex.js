@@ -15,7 +15,7 @@ class NewsIndex extends React.Component {
     title: "",
     moreUrl: "",
     className: "widget-news-list"
-  };
+  }
   
   constructor(props) {
     super(props)

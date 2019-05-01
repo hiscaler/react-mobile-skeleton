@@ -1,9 +1,9 @@
-import React from 'react';
-import axios from "axios/index";
-import moment from "moment/moment";
-import Url from "../../helpers/Url";
-import {Toast} from "antd-mobile/lib/index";
-import "./NewsView.css";
+import React from 'react'
+import axios from "axios/index"
+import moment from "moment/moment"
+import Url from "../../helpers/Url"
+import {Toast} from "antd-mobile/lib/index"
+import "./NewsView.css"
 
 /**
  * 资讯详情组件
