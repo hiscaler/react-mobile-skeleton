@@ -34,13 +34,11 @@ function Authentication(Component) {
     }
     
     checkAuth() {
-      
-      // 判断登陆
+      // 判断是否登录
       const identity = User.getIdentity()
       const login = identity && !identity._isGuest ? true : false
       
-      
-      // 未登陆重定向到登陆页面
+      // 未登录重定向到登录页面
       if (!login) {
         console.info(this.props.location)
         const location = this.props.location
@@ -60,7 +58,7 @@ function Authentication(Component) {
       if (this.state.login) {
         return <Component {...this.props}/>
       }
-      return ''
+      return null
     }
   }
   
