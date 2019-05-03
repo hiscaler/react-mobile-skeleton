@@ -2,6 +2,7 @@ import React from 'react'
 import {NoticeBar} from "antd-mobile"
 import Url from "../helpers/Url"
 import axios from "axios"
+import {Link} from "react-router-dom"
 
 /**
  * Notice component
@@ -34,8 +35,11 @@ class Notice extends React.Component {
     const {item} = this.state
     if (item) {
       return (
-        <NoticeBar marqueeProps={{loop: false, style: {padding: '0 7.5px'}}}>
-          {item.title}
+        <NoticeBar
+          marqueeProps={{loop: false, style: {padding: '0 7.5px'}}}
+          mode="link"
+        >
+          <Link to={'/news/' + item.id} title={item.title}>{item.title}</Link>
         </NoticeBar>
       )
     } else {

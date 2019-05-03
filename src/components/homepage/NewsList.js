@@ -15,7 +15,7 @@ class NewsList extends React.Component {
     title: "",
     moreUrl: "",
     limit: 10,
-    className: "widget-news-list"
+    className: "widget-news-list mlr-10"
   }
   
   constructor(props) {

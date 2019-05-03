@@ -43,7 +43,7 @@ class NewsView extends React.Component {
       return null
     } else {
       return (
-        <div className="news-detail">
+        <div className="news-detail mlr-10">
           <h1 className="title">{article.title}</h1>
           <p className="meta">
             发布时间: {moment.unix(article.publishedAt).format("YYYY-MM-DD")}

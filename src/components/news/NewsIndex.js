@@ -14,7 +14,7 @@ class NewsIndex extends React.Component {
   static defaultProps = {
     title: "",
     moreUrl: "",
-    className: "widget-news-list"
+    className: "widget-news-list mlr-10"
   }
   
   constructor(props) {

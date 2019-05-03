@@ -164,6 +164,11 @@ cite {
     display: block;
 }
 
+.mlr-10 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 #root {
     background-color: #fff;
     height: 100vh;
@@ -177,13 +182,14 @@ cite {
 }
 
 #page #page-bd {
-    margin: 0 10px 50px 10px;
+    margin: 0 0 50px 0;
     overflow: auto;
     height: calc(100vh - 80px);
 }
 
 #page #page-ft {
 }
+
 
 .fullScreen {
 
