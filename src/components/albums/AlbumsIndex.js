@@ -46,10 +46,9 @@ class AlbumsIndex extends React.Component {
   }
   
   render() {
-    const {page, pageSize} = this.props
     const {isLoading, items} = this.state
     if (isLoading) {
-      return ''
+      return null
     } else {
       return (
         <div className="albums">
