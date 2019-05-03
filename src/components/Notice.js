@@ -36,7 +36,7 @@ class Notice extends React.Component {
     if (item) {
       return (
         <NoticeBar
-          marqueeProps={{loop: false, style: {padding: '0 7.5px'}}}
+          marqueeProps={{loop: true, style: {padding: '0 7.5px'}}}
           mode="link"
         >
           <Link to={'/news/' + item.id} title={item.title}>{item.title}</Link>
