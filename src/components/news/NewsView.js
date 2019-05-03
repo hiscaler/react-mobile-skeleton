@@ -2,7 +2,7 @@ import React from 'react'
 import axios from "axios/index"
 import moment from "moment/moment"
 import Url from "../../helpers/Url"
-import {Toast} from "antd-mobile/lib/index"
+import {Toast, WingBlank} from "antd-mobile/lib/index"
 import "./NewsView.css"
 
 /**
@@ -43,15 +43,17 @@ class NewsView extends React.Component {
       return null
     } else {
       return (
-        <div className="news-detail mlr-10">
-          <h1 className="title">{article.title}</h1>
-          <p className="meta">
-            发布时间: {moment.unix(article.publishedAt).format("YYYY-MM-DD")}
-          </p>
-          <div className="body">
-            {article.description}
+        <WingBlank size="md">
+          <div className="news-detail">
+            <h1 className="title">{article.title}</h1>
+            <p className="meta">
+              发布时间: {moment.unix(article.publishedAt).format("YYYY-MM-DD")}
+            </p>
+            <div className="body">
+              {article.description}
+            </div>
           </div>
-        </div>
+        </WingBlank>
       )
     }
   }

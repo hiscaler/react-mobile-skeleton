@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
-import {Toast} from "antd-mobile"
+import {Toast, WingBlank} from "antd-mobile"
 import Url from "../../helpers/Url"
 
 /**
@@ -14,7 +14,7 @@ class NewsIndex extends React.Component {
   static defaultProps = {
     title: "",
     moreUrl: "",
-    className: "widget-news-list mlr-10"
+    className: "widget-news-list"
   }
   
   constructor(props) {
@@ -48,18 +48,20 @@ class NewsIndex extends React.Component {
       return null
     } else {
       return (
-        <div className={className}>
-          <div className="hd">
-            {title}
+        <WingBlank size="md">
+          <div className={className}>
+            <div className="hd">
+              {title}
+            </div>
+            <div className="bd">
+              <ul className="list">
+                {items.map(item => <li key={item.id}>
+                  <Link to={'/news/' + item.id} title={item.title}>{item.title}</Link>
+                </li>)}
+              </ul>
+            </div>
           </div>
-          <div className="bd">
-            <ul className="list">
-              {items.map(item => <li key={item.id}>
-                <Link to={'/news/' + item.id} title={item.title}>{item.title}</Link>
-              </li>)}
-            </ul>
-          </div>
-        </div>
+        </WingBlank>
       )
     }
     
