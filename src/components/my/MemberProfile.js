@@ -33,11 +33,10 @@ class MemberProfile extends React.Component {
   }
   
   handleSubmit(event) {
-    const payload = new FormData()
-    payload.real_name = this.state.real_name
-    payload.mobile_phone = this.state.mobile_phone
-    payload.remark = this.state.remark
-    console.info(payload)
+    let payload = new FormData()
+    payload.append("real_name", this.state.real_name)
+    payload.append("mobile_phone", this.state.mobile_phone)
+    payload.append("remark", this.state.remark)
     const url = Url.toRoute('member')
     axios.patch(url, payload).then(res => {
       Toast.success('会员资料修改成功')
