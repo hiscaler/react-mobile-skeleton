@@ -2,7 +2,7 @@ import {Result} from "antd-mobile"
 import iconInformation from "../assets/images/icon-information.svg"
 import React from "react"
 
-const myImg = src => <img src={src} className="am-icon am-icon-md" alt=""/>
+const showImage = src => <img src={src} className="am-icon am-icon-md" alt=""/>
 
 /**
  * NotFound component
@@ -14,7 +14,7 @@ class NotFound extends React.Component {
     return (
       <div className="widget-error">
         <Result
-          img={myImg(iconInformation)}
+          img={showImage(iconInformation)}
           title="提示信息"
           message="您访问的资源不存在。"
           buttonText="返回首页"
