@@ -14,6 +14,7 @@ class NewsList extends React.Component {
   static defaultProps = {
     title: "",
     moreUrl: "",
+    limit: 10,
     className: "widget-news-list"
   }
   
@@ -28,7 +29,7 @@ class NewsList extends React.Component {
   componentWillMount() {
     Toast.loading("载入中...", 0, null, false);
     const url = Url.toRoute('news/list', {
-      limit: 10
+      limit: this.props.limit
     });
     axios.get(url).then((resp) => {
       console.info(resp);

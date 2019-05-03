@@ -7,12 +7,11 @@ class App extends Component {
   render() {
     return (
       <Fragment>
-        <Notice
-          limit="3"
-        />
+        <Notice/>
         <WhiteSpace/>
         <NewsList
           title="最新资讯"
+          limit='10'
         />
       </Fragment>
     )
