@@ -1,8 +1,9 @@
 import React from 'react'
-import {Button, InputItem, List, TextareaItem, Toast, WhiteSpace} from "antd-mobile"
+import {Button, ImagePicker, InputItem, List, TextareaItem, Toast, WhiteSpace} from "antd-mobile"
 import axios from 'axios'
 import Url from "../../helpers/Url"
 import Item from "antd-mobile/es/popover/Item"
+import './MemberProfile.css'
 
 /**
  * Member profile
@@ -15,26 +16,39 @@ class MemberProfile extends React.Component {
     super(props)
     this.state = {
       username: undefined,
+      files: [],
       real_name: undefined,
       mobile_phone: undefined,
       remark: undefined
     }
     
+    this.onChange = this.onChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   
   componentWillMount() {
     this.setState({
       username: "hiscaler",
+      avatar: null,
       real_name: "数字",
       mobile_phone: 15888888888,
       remark: ''
     })
   }
   
+  onChange = (files, type, index) => {
+    console.info(files, type, index)
+    this.setState({
+      files,
+    })
+  }
+  
   handleSubmit(event) {
     let payload = new FormData()
     payload.append("real_name", this.state.real_name)
+    if (this.state.files.length) {
+      payload.append("avatar", this.state.files[0].file)
+    }
     payload.append("mobile_phone", this.state.mobile_phone)
     payload.append("remark", this.state.remark)
     const url = Url.toRoute('member')
@@ -46,11 +60,23 @@ class MemberProfile extends React.Component {
   }
   
   render() {
-    const {username, real_name, mobile_phone, remark} = this.state
+    const {username, files, real_name, mobile_phone, remark} = this.state
     return (
       <div>
         <form>
           <List>
+            <div className="avatar">
+              <ImagePicker
+                length="6"
+                files={files}
+                onChange={this.onChange}
+                onImageClick={(index, fs) => console.log(index, fs)}
+                selectable={files.length < 1}
+                length={1}
+                disableDelete
+                accept="image/gif,image/jpeg,image/jpg,image/png"
+              />
+            </div>
             <InputItem
               type="text"
               defaultValue={username}

@@ -1,0 +1,9 @@
+.avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+}
+
+.avatar .am-image-picker-item {
+    border-radius: 50px;
+}
