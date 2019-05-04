@@ -27,7 +27,7 @@ class NewsIndex extends React.Component {
   
   componentWillMount() {
     Toast.loading("载入中...", 0, null, false)
-    const url = Url.toRoute('news/list', {
+    const url = Url.toRoute('news/default/index', {
       limit: 10
     })
     axios.get(url).then((resp) => {
