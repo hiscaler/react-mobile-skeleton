@@ -170,7 +170,6 @@ cite {
 }
 
 #page {
-
 }
 
 #page #page-hd {
@@ -187,7 +186,6 @@ cite {
 
 
 .fullScreen {
-
 }
 
 code {
@@ -204,7 +202,6 @@ code {
     line-height: 30px;
     text-align: center;
 }
-
 
 /*******************************************************************************
  * data list
@@ -232,4 +229,17 @@ ul.list li.left {
 ul.list li em {
     float: right;
     color: #A2A4A5;
+}
+
+/*******************************************************************************
+ * Error messages
+ ******************************************************************************/
+.errors {
+    height: 1%;
+    max-height: 100px;
+    text-align: left;
+}
+
+.errors li {
+    line-height: 24px;
 }
