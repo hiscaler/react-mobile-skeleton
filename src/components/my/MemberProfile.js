@@ -1,5 +1,5 @@
 import React from 'react'
-import {Button, ImagePicker, InputItem, List, TextareaItem, Toast, WhiteSpace} from "antd-mobile"
+import {Button, ImagePicker, InputItem, List, TextareaItem, Toast, WhiteSpace, WingBlank} from "antd-mobile"
 import axios from 'axios'
 import Url from "../../helpers/Url"
 import Item from "antd-mobile/es/popover/Item"
@@ -51,10 +51,19 @@ class MemberProfile extends React.Component {
     }
     payload.append("mobile_phone", this.state.mobile_phone)
     payload.append("remark", this.state.remark)
-    const url = Url.toRoute('member')
+    const url = Url.toRoute('member/update')
     axios.patch(url, payload).then(res => {
       Toast.success('会员资料修改成功')
       console.log(res)
+    }).catch(error => {
+      if (error.response) {
+        let errorMessages = []
+        const messages = error.response.data.error
+        for (let i in messages) {
+          errorMessages.push((parseInt(i) + 1) + '. ' + messages[i].message)
+        }
+        Toast.fail(errorMessages)
+      }
     })
     event.preventDefault()
   }
@@ -62,7 +71,7 @@ class MemberProfile extends React.Component {
   render() {
     const {username, files, real_name, mobile_phone, remark} = this.state
     return (
-      <div>
+      <WingBlank>
         <form>
           <List>
             <div className="avatar">
@@ -122,7 +131,7 @@ class MemberProfile extends React.Component {
             </Item>
           </List>
         </form>
-      </div>
+      </WingBlank>
     )
   }
 }
