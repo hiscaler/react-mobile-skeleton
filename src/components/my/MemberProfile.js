@@ -65,7 +65,11 @@ class MemberProfile extends React.Component {
     payload.append("mobile_phone", this.state.mobile_phone)
     payload.append("remark", this.state.remark)
     const url = Url.toRoute('member/update')
-    axios.patch(url, payload).then(res => {
+    axios.put(url, payload, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    }).then(res => {
       Toast.success('会员资料修改成功')
       console.log(res)
     }).catch(error => {
@@ -73,9 +77,14 @@ class MemberProfile extends React.Component {
         let errorMessages = []
         const messages = error.response.data.error
         
-        for (let i in messages) {
-          errorMessages.push(messages[i].message)
+        if (typeof messages == 'object') {
+          errorMessages.push(messages.message)
+        } else {
+          for (let i in messages) {
+            errorMessages.push(messages[i].message)
+          }
         }
+        
         console.info(errorMessages)
         this.setState({
           showModal: true,
