@@ -1,0 +1,31 @@
+.notice-view {
+
+}
+
+.notice-view .title {
+    margin-bottom: 10px;
+}
+
+.notice-view .meta {
+    color: #cccccc;
+    line-height: 30px;
+    border-bottom: #cccccc solid 1px;
+}
+
+.notice-view .meta span.published-at {
+
+}
+
+.notice-view .meta span.clicks-count {
+    float: right;
+}
+
+.notice-view .content {
+    padding-top: 10px;
+    line-height: 24px;
+}
+
+.notice-view .content img {
+    max-width: 100%;
+    text-align: center;
+}

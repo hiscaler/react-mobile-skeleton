@@ -19,7 +19,8 @@ class Notice extends React.Component {
   }
   
   componentWillMount() {
-    const url = Url.toRoute('news/list', {
+    const url = Url.toRoute('notice/default/index', {
+      fields: 'id,title',
       limit: 1
     })
     axios.get(url).then((resp) => {
@@ -39,7 +40,7 @@ class Notice extends React.Component {
           marqueeProps={{loop: true, style: {padding: '0 7.5px'}}}
           mode="link"
         >
-          <Link to={'/news/' + item.id} title={item.title}>{item.title}</Link>
+          <Link to={'/notice/' + item.id} title={item.title}>{item.title}</Link>
         </NoticeBar>
       )
     } else {
