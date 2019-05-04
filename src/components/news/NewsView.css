@@ -12,6 +12,14 @@
     border-bottom: #cccccc solid 1px;
 }
 
+.news-detail .meta span.published-at {
+
+}
+
+.news-detail .meta span.clicks-count {
+    float: right;
+}
+
 .news-detail .body {
     padding-top: 10px;
     line-height: 24px;

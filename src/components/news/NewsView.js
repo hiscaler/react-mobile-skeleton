@@ -16,19 +16,23 @@ class NewsView extends React.Component {
     super(props)
     this.state = {
       isLoading: true,
-      article: undefined
+      item: undefined
     }
   }
   
   componentDidMount() {
     Toast.loading("载入中...", 0, null, false)
     const id = this.props.match.params.id
-    const url = Url.toRoute('news/' + id)
+    const url = Url.toRoute('news/default/view', {
+      id: id,
+      fields: "title,is_picture_news,picture_path,clicks_count,published_at",
+      expand: "content"
+    })
     axios.get(url).then((resp) => {
       console.info(resp.data.data)
       this.setState({
         isLoading: false,
-        article: resp.data.data
+        item: resp.data.data
       })
     })
   }
@@ -38,19 +42,24 @@ class NewsView extends React.Component {
   }
   
   render() {
-    const {isLoading, article} = this.state
+    const {isLoading, item} = this.state
     if (isLoading) {
       return null
     } else {
       return (
         <WingBlank size="md">
           <div className="news-detail">
-            <h1 className="title">{article.title}</h1>
+            <h1 className="title">{item.title}</h1>
             <p className="meta">
-              发布时间: {moment.unix(article.publishedAt).format("YYYY-MM-DD")}
+              <span className="published-at">
+                发布时间：{moment.unix(item.published_at).format("YYYY-MM-DD")}
+              </span>
+              <span className="clicks-count">
+                浏览次数：{item.clicks_count}
+              </span>
             </p>
             <div className="body">
-              {article.description}
+              <div dangerouslySetInnerHTML={{__html: item.content}}/>
             </div>
           </div>
         </WingBlank>
