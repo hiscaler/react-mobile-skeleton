@@ -40,7 +40,7 @@ class Notice extends React.Component {
           marqueeProps={{loop: true, style: {padding: '0 7.5px'}}}
           mode="link"
         >
-          <Link to={'/notice/' + item.id} title={item.title}>{item.title}</Link>
+          <Link to={'/notices/' + item.id} title={item.title}>{item.title}</Link>
         </NoticeBar>
       )
     } else {
