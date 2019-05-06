@@ -20,8 +20,7 @@ const Routes = () => (
     <Route path="/albums" exact component={Authentication(AlbumsIndex)}/>
     <Route path="/albums/:id" exact component={Authentication(AlbumsView)}/>
     <Route path="/notices" exact component={Authentication(NoticeIndex)}/>
-    <Route path="/notices/p/:page" exact component={Authentication(NoticeIndex)}/>
-    <Route path="/notices/:id" exact component={Authentication(NoticeView)}/>
+    <Route path="/notices/:id" component={Authentication(NoticeView)}/>
     <Route path="/news" exact component={Authentication(NewsIndex)}/>
     <Route path="/news/:id" component={Authentication(NewsView)}/>
     <Route path="/my/profile" component={Authentication(MemberProfile)}/>

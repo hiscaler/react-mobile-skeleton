@@ -19,6 +19,10 @@ class NoticeIndex extends React.Component {
   };
   
   fetch(page = 1) {
+    page = parseInt(page)
+    if (page <= 0) {
+      page = 1
+    }
     const {pageSize} = this.props;
     console.info("page" + page)
     Toast.loading("载入中...", 0, null, false)
@@ -35,7 +39,8 @@ class NoticeIndex extends React.Component {
   }
   
   componentWillMount() {
-    const page = this.props.match.params.page;
+    const usp = (new URLSearchParams(window.location.search)),
+      page = usp.has('page') ? usp.get('page') : 1;
     this.fetch(page);
   }
   
@@ -94,7 +99,7 @@ class NoticeIndex extends React.Component {
                     nextText: (<span className="arrow-align">下一页<Icon type="right"/></span>),
                   }}
                   onChange={page => {
-                    this.props.history.push('/notices/p/' + page)
+                    this.props.history.push('/notices?page=' + page)
                     this.fetch(page);
                   }}
                 />
