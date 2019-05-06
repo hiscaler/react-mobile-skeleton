@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
-import {Toast, WingBlank} from "antd-mobile"
+import {SearchBar, Toast, WingBlank} from "antd-mobile"
 import Url from "../../helpers/Url"
 
 /**
@@ -20,6 +20,7 @@ class NewsIndex extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      searched: false,
       isLoading: true,
       items: []
     }
@@ -48,20 +49,45 @@ class NewsIndex extends React.Component {
       return null
     } else {
       return (
-        <WingBlank size="md">
-          <div className={className}>
-            <div className="hd">
-              {title}
+        <Fragment>
+          <SearchBar
+            placeholder="请输入您要搜索的资讯标题"
+            onSubmit={value => {
+              if (!this.state.searched && !value.length) {
+                Toast.info("请输入搜索关键词")
+              } else {
+                this.setState({searched: true})
+                Toast.loading("载入中...", 0, null, false)
+                let params = {limit: 10}
+                if (value) {
+                  params['title'] = value
+                }
+                const url = Url.toRoute('news/default/index', params)
+                axios.get(url).then((resp) => {
+                  this.setState({
+                    isLoading: false,
+                    items: resp.data.data.items
+                  })
+                })
+                Toast.hide()
+              }
+            }}
+          />
+          <WingBlank size="md">
+            <div className={className}>
+              <div className="hd">
+                {title}
+              </div>
+              <div className="bd">
+                <ul className="list">
+                  {items.map(item => <li key={item.id}>
+                    <Link to={'/news/' + item.id} title={item.title}>{item.title}</Link>
+                  </li>)}
+                </ul>
+              </div>
             </div>
-            <div className="bd">
-              <ul className="list">
-                {items.map(item => <li key={item.id}>
-                  <Link to={'/news/' + item.id} title={item.title}>{item.title}</Link>
-                </li>)}
-              </ul>
-            </div>
-          </div>
-        </WingBlank>
+          </WingBlank>
+        </Fragment>
       )
     }
     
