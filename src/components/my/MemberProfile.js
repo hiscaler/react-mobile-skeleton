@@ -35,7 +35,7 @@ class MemberProfile extends React.Component {
   }
   
   componentDidMount() {
-    const url = Url.toRoute('member/view')
+    const url = Url.toRoute('account/view')
     axios.get(url).then(res => {
       const member = res.data.data
       console.info(member)
@@ -64,19 +64,14 @@ class MemberProfile extends React.Component {
     }
     payload.append("mobile_phone", this.state.mobile_phone)
     payload.append("remark", this.state.remark)
-    const url = Url.toRoute('member/update')
-    axios.put(url, payload, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    }).then(res => {
+    const url = Url.toRoute('account/update')
+    axios.put(url, payload).then(res => {
       Toast.success('会员资料修改成功')
       console.log(res)
     }).catch(error => {
       if (error.response) {
         let errorMessages = []
         const messages = error.response.data.error
-        
         if (typeof messages == 'object') {
           errorMessages.push(messages.message)
         } else {
