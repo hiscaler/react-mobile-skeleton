@@ -90,7 +90,6 @@ class NewsIndex extends React.Component {
         </Fragment>
       )
     }
-    
   }
 }
 
