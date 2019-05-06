@@ -3,7 +3,6 @@ import {Icon, Pagination, SearchBar, Toast, WingBlank} from "antd-mobile";
 import Url from "../../helpers/Url";
 import axios from "axios";
 import {Link} from "react-router-dom";
-import PropTypes from 'prop-types';
 
 class NoticeIndex extends React.Component {
   
@@ -11,20 +10,16 @@ class NoticeIndex extends React.Component {
     super(props);
     this.state = {
       isLoading: true,
-      page: 1,
       data: {}
     };
-    
-    this.fetch = this.fetch.bind(this);
   }
   
   static defaultProps = {
     pageSize: 1,
   };
   
-  fetch() {
+  fetch(page = 1) {
     const {pageSize} = this.props;
-    const {page} = this.state;
     console.info("page" + page)
     Toast.loading("载入中...", 0, null, false)
     const url = Url.toRoute('notice/default/index', {
@@ -40,9 +35,9 @@ class NoticeIndex extends React.Component {
   }
   
   componentWillMount() {
-    this.fetch();
+    const page = this.props.match.params.page;
+    this.fetch(page);
   }
-  
   
   componentDidUpdate(prevProps, prevState, snapshot) {
     Toast.hide();
@@ -56,7 +51,7 @@ class NoticeIndex extends React.Component {
       return (
         <Fragment>
           <SearchBar
-            placeholder="请输入您要搜索的资讯标题"
+            placeholder="请输入您要搜索的通知标题"
             onSubmit={value => {
               if (!this.state.searched && !value.length) {
                 Toast.info("请输入搜索关键词")
@@ -67,7 +62,7 @@ class NoticeIndex extends React.Component {
                 if (value) {
                   params['title'] = value
                 }
-                const url = Url.toRoute('notice/default/index', params)
+                const url = Url.toRoute('notices/default/index', params)
                 axios.get(url).then((resp) => {
                   this.setState({
                     isLoading: false,
@@ -83,7 +78,7 @@ class NoticeIndex extends React.Component {
               <div className="bd">
                 <ul className="list">
                   {data.items.map(item => <li key={item.id}>
-                    <Link to={'/notice/' + item.id} title={item.title}>{item.title}</Link>
+                    <Link to={'/notices/' + item.id} title={item.title}>{item.title}</Link>
                   </li>)}
                 </ul>
               </div>
@@ -91,6 +86,7 @@ class NoticeIndex extends React.Component {
                 <Pagination
                   className="pager"
                   mode="button"
+                  simple={true}
                   total={data._meta.pageCount}
                   current={data._meta.currentPage}
                   locale={{
@@ -98,12 +94,8 @@ class NoticeIndex extends React.Component {
                     nextText: (<span className="arrow-align">下一页<Icon type="right"/></span>),
                   }}
                   onChange={page => {
-                    console.info(this);
-                    console.info(page);
-                    this.setState({page: page});
-                    console.info(this.state.page)
-                    this.fetch()
-                    return true;
+                    this.props.history.push('/notices/p/' + page)
+                    this.fetch(page);
                   }}
                 />
               </div>
