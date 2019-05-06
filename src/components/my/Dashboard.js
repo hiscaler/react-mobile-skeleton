@@ -26,6 +26,15 @@ class Dashboard extends React.Component {
         <Item
           thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
           onClick={() => {
+            this.props.history.push('/notices')
+          }}
+          arrow="horizontal"
+        >
+          通知
+        </Item>
+        <Item
+          thumb="https://zos.alipayobjects.com/rmsportal/dNuvNrtqUztHCwM.png"
+          onClick={() => {
             this.props.history.push('/my/profile')
           }}
           arrow="horizontal"
