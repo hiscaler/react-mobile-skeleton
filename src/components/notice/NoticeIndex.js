@@ -15,7 +15,7 @@ class NoticeIndex extends React.Component {
   }
   
   static defaultProps = {
-    pageSize: 1,
+    pageSize: 10,
   };
   
   fetch(page = 1) {

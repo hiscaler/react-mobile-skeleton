@@ -23,7 +23,6 @@ class NoticeView extends React.Component {
       fields: "title,clicks_count,published_at,content"
     });
     axios.get(url).then((resp) => {
-      console.info(resp.data.data);
       this.setState({
         isLoading: false,
         item: resp.data.data
