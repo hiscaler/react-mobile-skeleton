@@ -3,6 +3,7 @@ import {Icon, Pagination, SearchBar, Toast, WingBlank} from "antd-mobile";
 import Url from "../../helpers/Url";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import {Helmet} from "react-helmet";
 
 class NoticeIndex extends React.Component {
   
@@ -55,6 +56,9 @@ class NoticeIndex extends React.Component {
     } else {
       return (
         <Fragment>
+          <Helmet>
+            <title>通知</title>
+          </Helmet>
           <SearchBar
             placeholder="请输入您要搜索的通知标题"
             onSubmit={value => {

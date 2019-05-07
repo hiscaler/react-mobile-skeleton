@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {Toast, WingBlank} from "antd-mobile";
 import Url from "../../helpers/Url";
 import axios from "axios";
 import "./NoticeView.css";
 import moment from "moment/moment"
+import {Helmet} from "react-helmet";
 
 class NoticeView extends React.Component {
   
@@ -40,22 +41,27 @@ class NoticeView extends React.Component {
       return null;
     } else {
       return (
-        <WingBlank size="md">
-          <div className="notice-view">
-            <h1 className="title">{item.title}</h1>
-            <p className="meta">
+        <Fragment>
+          <Helmet>
+            <title>{item.title}</title>
+          </Helmet>
+          <WingBlank size="md">
+            <div className="notice-view">
+              <h1 className="title">{item.title}</h1>
+              <p className="meta">
               <span className="published-at">
                 发布时间：{moment.unix(item.published_at).format("YYYY-MM-DD")}
               </span>
-              <span className="clicks-count">
+                <span className="clicks-count">
                 浏览次数：{item.clicks_count}
               </span>
-            </p>
-            <div className="content">
-              <div dangerouslySetInnerHTML={{__html: item.content}}/>
+              </p>
+              <div className="content">
+                <div dangerouslySetInnerHTML={{__html: item.content}}/>
+              </div>
             </div>
-          </div>
-        </WingBlank>
+          </WingBlank>
+        </Fragment>
       );
     }
   }

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import axios from 'axios'
 import {SearchBar, Toast, WingBlank} from "antd-mobile"
 import Url from "../../helpers/Url"
+import {Helmet} from "react-helmet"
 
 /**
  * News index
@@ -50,6 +51,9 @@ class NewsIndex extends React.Component {
     } else {
       return (
         <Fragment>
+          <Helmet>
+            <title>资讯</title>
+          </Helmet>
           <SearchBar
             placeholder="请输入您要搜索的资讯标题"
             onSubmit={value => {
