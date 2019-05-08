@@ -3,8 +3,8 @@ import axios from "axios/index"
 import moment from "moment/moment"
 import Url from "../../helpers/Url"
 import {Toast, WingBlank} from "antd-mobile/lib/index"
-import "./NewsView.css"
 import {Helmet} from "react-helmet";
+import styles from './NewsView.module.css'
 
 /**
  * 资讯详情组件
@@ -53,17 +53,17 @@ class NewsView extends React.Component {
             <title>{item.title}</title>
           </Helmet>
           <WingBlank size="md">
-            <div className="news-detail">
-              <h1 className="title">{item.title}</h1>
-              <p className="meta">
-              <span className="published-at">
+            <div className={styles['news-detail']}>
+              <h1 className={styles.title}>{item.title}</h1>
+              <p className={styles.meta}>
+              <span className={styles['published-at']}>
                 发布时间：{moment.unix(item.published_at).format("YYYY-MM-DD")}
               </span>
-                <span className="clicks-count">
+                <span className={styles['clicks-count']}>
                 浏览次数：{item.clicks_count}
               </span>
               </p>
-              <div className="body">
+              <div className={styles.body}>
                 <div dangerouslySetInnerHTML={{__html: item.content}}/>
               </div>
             </div>
